@@ -1,0 +1,36 @@
+{% extends 'main/_base.html' %}
+
+
+{% block content %}
+
+<main class="container mx-auto px-4 py-10 font-sans text-white">
+
+    <nav class="nav-gradient text-white p-6 rounded-full shadow-2xl flex justify-center space-x-12 sticky top-0 z-50 backdrop-blur-md">
+      <button onclick="showSection('cv-section')" class="hover:bg-highlight px-8 py-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110 shadow-lg nav-link">My CV</button>
+      <button onclick="showSection('story-section')" class="hover:bg-highlight px-8 py-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110 shadow-lg nav-link">Story About Me</button>
+      <button onclick="showSection('leader-section')" class="hover:bg-highlight px-8 py-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110 shadow-lg nav-link">Leader I Love</button>
+    </nav>
+  
+    <div class="my-16"></div>
+  
+    <section id="cv-section" class="rounded-3xl shadow-2xl p-16 bg-primary-dark mb-20 hidden transition-all duration-1000 ease-in-out transform opacity-0 translate-y-10">
+      <h2 class="text-6xl font-black mb-8 text-center text-highlight">My CV</h2>
+    </section>
+  
+    <section id="story-section" class="rounded-3xl shadow-2xl p-16 bg-primary mb-20 hidden transition-all duration-1000 ease-in-out transform opacity-0 translate-y-10">
+      <h2 class="text-6xl font-black mb-8 text-center text-accent">Story About Me</h2>
+    </section>
+  
+    
+    <section id="leader-section" class="rounded-3xl shadow-2xl p-16 bg-primary-dark hidden transition-all duration-1000 ease-in-out transform opacity-0 translate-y-10">
+      <h2 class="text-6xl font-black mb-8 text-center text-highlight">Leader I Love</h2>
+    </section>
+  
+  </main>
+  
+  <script>
+
+  </script>
+  
+
+{% endblock %}

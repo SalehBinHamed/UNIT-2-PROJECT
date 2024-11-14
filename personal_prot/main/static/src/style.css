@@ -1,0 +1,125 @@
+
+:root {
+    --primary: #1f3b23;
+    --primary-dark: #0f1e12;
+    --secondary: #c53030;
+    --accent: #4a7c59;
+    --highlight: #f5d07f;
+    --white: #ffffff;
+  }
+  
+
+  @layer base {
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  }
+  
+  /* Background Animation */
+  @keyframes bgAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animate-bg-animation {
+    background-size: 200% 200%;
+    animation: bgAnimation 8s ease-in-out infinite;
+  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav {
+    top: 0;
+  }
+.svg-container {
+  
+    height: 300px;
+    width: 100%;
+  }
+  svg {
+   
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    transform: scale(0.8);
+    transition: transform 0.5s ease;
+  }
+  svg path {
+    margin-bottom: 20px;
+    fill: transparent;
+    stroke: #ffffff;
+    stroke-width: 0.2;
+    stroke-dashoffset: 30;
+    stroke-dasharray: 30;
+    animation: textAnimation 8s ease-in 3 ;
+  }
+  @keyframes textAnimation {
+    0% {
+      stroke-dashoffset: 60;
+    }
+    70% {
+      stroke-dashoffset: 20;
+    }
+    80% {
+      fill: transparent;
+    }
+    100% {
+        fill: #ffffff;
+      stroke-dashoffset: 20;
+    }
+  }
+
+  @keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.animate-floating {
+    animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes storyline-vertical {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(-100%); }
+  }
+  
+  .animate-storyline-vertical {
+    animation: storyline-vertical 40s linear infinite;
+  }
+  
+.dot {
+    width: 20px;
+    height: 20px;
+    background: var(--highlight);
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .storyline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 2px;
+    background: var(--highlight);
+    z-index: -1;
+  }
+  
+  .story-point:hover .dot {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
