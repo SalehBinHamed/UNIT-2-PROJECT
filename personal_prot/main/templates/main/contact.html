@@ -1,8 +1,50 @@
+{% extends 'main/_base.html' %}   
 {% block content %}
-{% comment %} 
+<main class="container mx-auto px-4 py-10">
+  
+    {% comment %} Page Title {% endcomment %}
+    <section class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-white">Contact Me</h1>
+    </section>
+    
+    {% comment %} Contact Form {% endcomment %}
+    <section class="max-w-3xl mx-auto bg-white bg-opacity-10 backdrop-filter shadow-2xl p-8">
+      
 
-as it named I will try my bast to make it look good and responsive
-
- {% endcomment %}
-
+      <form method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {% comment %} Protect the form {% endcomment %}
+        <div class="grid grid-cols-1 gap-6">
+          
+          {% comment %} Title Field {% endcomment %}
+          <div>
+            <label for="title" class="block text-gray-300 mb-2">Title</label>
+            <input type="text" name="title" id="title" class="w-full p-3 bg-[#01411C] text-white rounded-lg" placeholder="Enter the title">
+          </div>
+          
+          {% comment %} Email Field {% endcomment %}
+          <div>
+            <label for="email" class="block text-gray-300 mb-2">Email</label>
+            <input type="email" name="email" id="email" class="w-full p-3 bg-[#01411C] text-white rounded-lg" placeholder="Enter your email">
+          </div>
+          
+          {% comment %} Message Field {% endcomment %}
+          <div>
+            <label for="message" class="block text-gray-300 mb-2">Message</label>
+            <textarea name="message" id="message" rows="5" class="w-full p-3 bg-[#01411C] text-white rounded-lg" placeholder="Write your message here"></textarea>
+          </div>
+          
+          {% comment %} Submit Button {% endcomment %}
+          <div class="text-center">
+            <button type="submit" class="cta-button py-3 px-8 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold shadow-lg transform transition duration-300 hover:scale-105">
+              Send Message
+            </button>
+          </div>
+          
+        </div>
+      </form>
+      
+    </section>
+    
+</main>
 {% endblock %}

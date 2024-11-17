@@ -1,0 +1,46 @@
+{% extends 'main/_base.html' %}
+
+{% block content %}
+
+<div class="flex">
+
+    <nav class="bg-gray-800 text-white w-64 min-h-screen p-4">
+        <h2 class="text-2xl font-bold mb-6">Navigation</h2>
+        <ul>
+            <li class="mb-4">
+                <a href="{% url 'dashboard_views' %}" class="hover:text-gray-300">Dashboard</a>
+            </li>
+            <li class="mb-4">
+                <a href="{% url 'contact_messages' %}" class="hover:text-gray-300">Contact Messages</a>
+            </li>
+        </ul>
+    </nav>
+    <main class="flex-1 p-6">
+    <h1 class="text-3xl font-bold mb-6 text-white">Contact Messages</h1>
+
+    <div class="overflow-x-auto">
+        <table class="table-auto w-full bg-white rounded shadow">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="px-4 py-2">Title</th>
+                    <th class="px-4 py-2">Email</th>
+                    <th class="px-4 py-2">Message</th>
+                    <th class="px-4 py-2">Submitted At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for message in messages %}
+                <tr class="border-t hover:bg-gray-100">
+                    <td class="px-4 py-2">{{ message.title }}</td>
+                    <td class="px-4 py-2">{{ message.email }}</td>
+                    <td class="px-4 py-2">{{ message.message }}</td>
+                    <td class="px-4 py-2">{{ message.submitted_at|date:"Y-m-d H:i" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </main>
+</div>
+
+{% endblock %}

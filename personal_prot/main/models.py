@@ -12,3 +12,17 @@ class Main(models.Model):
     poster3 = models.ImageField(upload_to="images/", default=None)
     poster4 = models.ImageField(upload_to="images/", default=None)
     poster5 = models.ImageField(upload_to="images/", default=None)
+
+
+
+
+
+
+
+
+
+class ContactMessage(models.Model):
+    title = models.CharField(max_length=150)
+    email = models.EmailField()
+    message = models.TextField()
+    submitted_at = models.DateTimeField(auto_now_add=True)

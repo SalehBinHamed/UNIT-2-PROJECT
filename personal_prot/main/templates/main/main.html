@@ -1,0 +1,45 @@
+{% extends 'main/_base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% comment %} Glass Section {% endcomment %}
+<section id="glass-section" class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-md rounded-xl shadow-2xl p-8 text-center center ml-40 animate-floating mt-64 mb-96 h-[50%] w-[80%]">
+  <h1 class="text-5xl font-bold mb-6 text-white mt-20">Welcome to Personal Page</h1>
+  <p class="mb-6 text-white text-lg">This page contains info about Saleh Alrashidi. I hope you will enjoy the trip you will take.</p>
+  <a href="{% url 'about_views' %}" class="inline-block cta-button py-3 px-8 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold shadow-lg transform transition duration-300 hover:scale-105"> 
+    Get Started 
+  </a>
+</section>
+
+<section class="py-20 relative">
+  <div class="container mx-auto px-6 md:px-12">
+    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full border-l-4 border-gray-200"></div>
+
+    {% for entry in entries %}
+    <div class="flex flex-col md:flex-row items-center mb-16 relative">
+      
+      <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
+        <div class="w-4 h-4 bg-green-500 rounded-full border-4 border-white"></div>
+      </div>
+      
+      <div class="{% if forloop.counter0|divisibleby:2 %}md:pr-8 md:order-1{% else %}md:pl-8 md:order-2{% endif %} md:w-1/2 w-full"></div>
+
+      {% comment %} Image Section with Overlay {% endcomment %}
+      <div class="{% if forloop.counter0|divisibleby:2 %}md:pl-8 md:order-2{% else %}md:pr-8 md:order-1{% endif %} md:w-1/2 w-full mt-8 md:mt-0">
+        {% if entry.poster %}
+          <div class="relative group overflow-hidden rounded-xl shadow-lg">
+            <img src="{{ entry.poster.url }}" alt="{{ entry.titel }} Poster Image" class="w-full h-80 object-cover rounded-xl transform transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 flex items-center justify-center rounded-xl transition-opacity duration-500 opacity-0 group-hover:opacity-100">
+              <a href="{% url 'detail_views' user_id=entry.id %}" class="inline-block cta-button py-3 px-8 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold shadow-lg transform transition duration-300 hover:scale-105">
+                Read More
+              </a>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

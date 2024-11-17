@@ -1,0 +1,64 @@
+{% extends 'main/_base.html' %}
+
+{% block content %}
+<main class="container mx-auto px-4 py-10 font-sans text-white">
+
+    <a href="{% url 'home_views' %}" class="inline-block py-3 px-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full shadow-lg transition duration-300 ease-in-out hover:bg-opacity-80 hover:scale-105 transform text-white font-bold mb-8 block">
+        ← Back to Home
+    </a>
+
+    <div class="swiper w-[100%] h-[80%] mx-auto">
+        <div class="swiper-wrapper">
+            {% for poster in entry.posters %}
+                <div class="swiper-slide">
+                    <img src="{{ poster.url }}" alt="{{ entry.titel }}" class="w-full h-auto object-cover rounded-xl">
+                </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+
+
+
+    {% comment %} Swiper JS Script {% endcomment %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var swiper = new Swiper('.swiper', {
+                loop: true,
+                slidesPerView: 1, //shows the only one by one
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 3000,//secend
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        });
+    </script>
+
+    {% comment %} Title Section {% endcomment %}
+    <h2 class="text-5xl font-black mb-6 text-highlight">{{ entry.titel }}</h2>
+
+    {% comment %} About Section {% endcomment %}
+    <h3 class="text-3xl font-semibold text-accent mb-4">About</h3>
+    <p class="text-lg text-gray-300 mb-8">{{ entry.about }}</p>
+
+    {% comment %} Contact Email Section {% endcomment %}
+    <p class="text-lg font-semibold text-gray-300 mb-2">Contact:</p>
+    <p class="text-md text-gray-400 mb-8">{{ entry.email }}</p>
+
+
+</main>
+
+{% endblock %}

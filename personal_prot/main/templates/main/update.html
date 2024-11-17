@@ -1,0 +1,57 @@
+{% extends 'main/_base.html' %}
+{% block content %}
+<div class="container mx-auto p-8">
+    <h1 class="text-4xl font-bold mb-8 text-center">Update Entry</h1>
+
+    <div class="bg-[#1f6f78] rounded-lg shadow-xl">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-6">
+                <label for="titel" class="block text-lg font-semibold mb-2">Title</label>
+                <input type="text" id="titel" name="titel" value="{{ entry.titel }}" class="w-full p-4 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+
+            <div class="mb-6">
+                <label for="short_reviwe" class="block text-lg font-semibold mb-2">Short Review</label>
+                <input type="text" id="short_reviwe" name="short_reviwe" value="{{ entry.short_reviwe }}" class="w-full p-4 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+
+            <div class="mb-6">
+                <label for="email" class="block text-lg font-semibold mb-2">Email</label>
+                <input type="email" id="email" name="email" value="{{ entry.email }}" class="w-full p-4 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+
+            <div class="mb-6">
+                <label for="about" class="block text-lg font-semibold mb-2">About</label>
+                <textarea id="about" name="about" class="w-full p-4 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-600">{{ entry.about }}</textarea>
+            </div>
+
+            <div class="mb-6">
+                <label for="poster" class="block text-lg font-semibold mb-2">Poster</label>
+                <input type="file" id="poster" name="poster" class="w-full p-4 bg-gray-700 text-white rounded-md">
+            </div>
+            
+            <div class="mb-6">
+                <label for="poster" class="block text-lg font-semibold mb-2">Poster</label>
+                <input type="file" id="poster" name="poster2" class="w-full p-4 bg-gray-700 text-white rounded-md">
+            </div>
+            
+            <div class="mb-6">
+                <label for="poster" class="block text-lg font-semibold mb-2">Poster</label>
+                <input type="file" id="poster" name="poster3" class="w-full p-4 bg-gray-700 text-white rounded-md">
+            </div>
+            
+            <div class="mb-6">
+                <label for="poster" class="block text-lg font-semibold mb-2">Poster</label>
+                <input type="file" id="poster" name="poster4" class="w-full p-4 bg-gray-700 text-white rounded-md">
+            </div>
+
+            <div class="flex justify-between mt-8">
+                <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">Update Entry</button>
+                <a href="{% url 'dashboard_views' %}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock  %}

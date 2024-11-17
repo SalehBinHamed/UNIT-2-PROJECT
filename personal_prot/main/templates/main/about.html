@@ -1,36 +1,86 @@
 {% extends 'main/_base.html' %}
-
-
 {% block content %}
-
 <main class="container mx-auto px-4 py-10 font-sans text-white">
 
+    {% comment %} Navigation Bar {% endcomment %}
     <nav class="nav-gradient text-white p-6 rounded-full shadow-2xl flex justify-center space-x-12 sticky top-0 z-50 backdrop-blur-md">
-      <button onclick="showSection('cv-section')" class="hover:bg-highlight px-8 py-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110 shadow-lg nav-link">My CV</button>
-      <button onclick="showSection('story-section')" class="hover:bg-highlight px-8 py-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110 shadow-lg nav-link">Story About Me</button>
-      <button onclick="showSection('leader-section')" class="hover:bg-highlight px-8 py-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110 shadow-lg nav-link">Leader I Love</button>
+        <button onclick="showSection('cv-section')" class="hover:bg-highlight px-8 py-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110 shadow-lg nav-link">My CV</button>
+        <button onclick="showSection('story-section')" class="hover:bg-highlight px-8 py-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110 shadow-lg nav-link">Story About Me</button>
+        <button onclick="showSection('leader-section')" class="hover:bg-highlight px-8 py-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110 shadow-lg nav-link">Leader I Love</button>
     </nav>
-  
-    <div class="my-16"></div>
-  
-    <section id="cv-section" class="rounded-3xl shadow-2xl p-16 bg-primary-dark mb-20 hidden transition-all duration-1000 ease-in-out transform opacity-0 translate-y-10">
-      <h2 class="text-6xl font-black mb-8 text-center text-highlight">My CV</h2>
-    </section>
-  
-    <section id="story-section" class="rounded-3xl shadow-2xl p-16 bg-primary mb-20 hidden transition-all duration-1000 ease-in-out transform opacity-0 translate-y-10">
-      <h2 class="text-6xl font-black mb-8 text-center text-accent">Story About Me</h2>
-    </section>
-  
-    
-    <section id="leader-section" class="rounded-3xl shadow-2xl p-16 bg-primary-dark hidden transition-all duration-1000 ease-in-out transform opacity-0 translate-y-10">
-      <h2 class="text-6xl font-black mb-8 text-center text-highlight">Leader I Love</h2>
-    </section>
-  
-  </main>
-  
-  <script>
 
-  </script>
-  
+    <div class="my-16"></div>
+
+    {% comment %} CV Section {% endcomment %}
+    <section id="cv-section" class="rounded-3xl shadow-2xl p-16 bg-primary-dark mb-20 hidden transition-all duration-1000 ease-in-out transform opacity-0 translate-y-10">
+        <h2 class="text-6xl font-black mb-8 text-center text-highlight">My CV</h2>
+
+        {% comment %} About Me Section {% endcomment %}
+        <div class="mt-12">
+            <h3 class="text-3xl font-semibold text-white mb-6">About Me</h3>
+            <p class="text-lg text-gray-300">
+                I am Saleh Hamed Alrashidi, a passionate and dedicated software engineer with a Bachelor's degree in Software Engineering from the University of Hail. My journey in the field has been enriched by hands-on experiences and diverse projects, allowing me to become proficient in various technologies such as Python, Django, React, SQL Server, and Firebase.
+
+                I am currently a Python Web Developer trainee at Tuwaiq Academy in Riyadh, where I am further honing my skills through an intensive bootcamp that focuses on building real-world web applications, mastering version control, and deployment strategies. Prior to this, I completed an internship at King Fahad Medical City, where I deepened my knowledge in C# and data analysis tools like Power BI. Additionally, my time as a programming member at PGC involved leading projects, conducting workshops, and fostering a collaborative learning environment.
+
+                Adaptability, problem-solving, teamwork, and a commitment to continuous learning are at the heart of my professional ethos. With fluency in both Arabic and English, I aim to contribute meaningfully to the tech landscape, creating impactful and scalable solutions.
+            </p>
+        </div>         
+
+        {% comment %} Grid Container for Cards with Larger Widths {% endcomment %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mt-12">
+            {% for entry in entries %}
+                {% comment %} Card Structure with Link to Details Page {% endcomment %}
+                <a href="{% url 'detail_views' entry.id %}" class="block bg-gray-800 bg-opacity-75 rounded-3xl overflow-hidden shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl group">
+                    
+                    {% comment %} Poster Image Section {% endcomment %}
+                    {% if entry.poster %}
+                        <div class="relative w-full h-80">
+                            <img src="{{ entry.poster.url }}" alt="{{ entry.titel }}" class="w-full h-full object-cover rounded-t-3xl">
+                            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-center p-4 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                                <h3 class="text-2xl font-bold text-white">{{ entry.titel }}</h3>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% comment %} Details Section {% endcomment %}
+                    <div class="p-6 text-center">
+                        {% comment %} Project Title {% endcomment %}
+                        <h4 class="text-2xl font-semibold text-highlight mb-4">{{ entry.titel }}</h4>
+
+                        {% comment %} Short Review {% endcomment %}
+                        <p class="text-md text-gray-300 mb-4">{{ entry.short_reviwe }}</p>
+
+                        {% comment %} Email {% endcomment %}
+                        <p class="text-sm text-gray-500"><span class="font-semibold">Contact Email:</span> {{ entry.email }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    {% comment %} Story About Me Section {% endcomment %}
+    <section id="story-section" class="rounded-3xl shadow-2xl p-16 bg-primary mb-20 hidden transition-all duration-1000 ease-in-out transform opacity-0 translate-y-10">
+        <h2 class="text-6xl font-black mb-8 text-center text-accent">Story About Me</h2>
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-lg text-gray-300">
+
+      underworking
+    sorry            </p>
+        </div>
+    </section>
+
+    {% comment %} Leader I Love Section {% endcomment %}
+    <section id="leader-section" class="rounded-3xl shadow-2xl p-16 bg-primary-dark hidden transition-all duration-1000 ease-in-out transform opacity-0 translate-y-10">
+        <h2 class="text-6xl font-black mb-8 text-center text-highlight">Leader I Love</h2>
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-lg text-gray-300">
+              underworking sorry            </p>
+        </div>
+    </section>
+
+</main>
+
+
 
 {% endblock %}
