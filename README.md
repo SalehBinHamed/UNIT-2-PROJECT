@@ -38,12 +38,16 @@ A personal website is website that represents you , your work , your career , yo
 (project description here.)
 
 ## Features List
-- (list of features)
+- (
+    -crud
+    -search
+    -ordring
+)
 
 ## User Stories, Wireframes & UML links
-- (User stories document link here.)
-- (wireframe link here.)
-- (UML link here.)
+- ([User stories document link here.](https://docs.google.com/document/d/1KX3cNAYDe-3UdrbFc4vyZuATmonN3m1llzlLmyCTgwY/edit?usp=sharing))
+- ([wireframe link here.](https://docs.google.com/document/d/1KX3cNAYDe-3UdrbFc4vyZuATmonN3m1llzlLmyCTgwY/edit?usp=sharing))
+- (![alt text](uml_diagram.png))
 
 
 ## Resources:

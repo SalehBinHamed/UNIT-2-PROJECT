@@ -43,7 +43,9 @@ def contact_messages(request):
     messages = ContactMessage.objects.all().order_by('-submitted_at')
     context = {
         'messages': messages,
+
     }
+    redirect("home_views")
     return render(request, 'main/messages.html', context)    
 def create_views(request):
     if request.method=="POST":
