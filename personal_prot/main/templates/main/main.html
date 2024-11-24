@@ -4,13 +4,21 @@
 {% block content %}
 
 {% comment %} Glass Section {% endcomment %}
-<section id="glass-section" class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-md rounded-xl shadow-2xl p-8 text-center center ml-40 animate-floating mt-64 mb-96 h-[50%] w-[80%]">
-  <h1 class="text-5xl font-bold mb-6 text-white mt-20">Welcome to Personal Page</h1>
-  <p class="mb-6 text-white text-lg">This page contains info about Saleh Alrashidi. I hope you will enjoy the trip you will take.</p>
-  <a href="{% url 'about_views' %}" class="inline-block cta-button py-3 px-8 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold shadow-lg transform transition duration-300 hover:scale-105"> 
-    Get Started 
-  </a>
+<section id="glass-section" class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-md rounded-xl shadow-2xl p-6 sm:p-8 text-center animate-floating mx-auto mt-72 sm:mt-72 mb-10 sm:mb-16 w-full max-w-md sm:max-w-lg md:max-w-2xl flex items-center justify-center">
+  <div>
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+      Welcome to Personal Page
+    </h1>
+    <p class="text-base sm:text-lg text-white mb-4 sm:mb-6">
+      This page contains info about Saleh Alrashidi. I hope you will enjoy the trip you will take.
+    </p>
+    <a href="{% url 'about_views' %}" class="inline-block cta-button py-2 px-6 sm:py-3 sm:px-8 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold shadow-lg transform transition duration-300 hover:scale-105">
+      Get Started
+    </a>
+  </div>
 </section>
+
+
 
 <section class="py-20 relative">
   <div class="container mx-auto px-6 md:px-12">
